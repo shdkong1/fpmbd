@@ -8,7 +8,7 @@ public class App {
         Connection db = null;
 
         try {
-            db = DriverManager.getConnection("jdbc:postgresql://localhost:5432/northwind", "postgres", "Sh29@Oct23");
+            db = DriverManager.getConnection("jdbc:postgresql://localhost:5432/northwind", "postgres", "password"); //change password before use
         } catch (Exception e) {
             e.printStackTrace();
         }
