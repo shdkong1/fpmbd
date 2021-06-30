@@ -14,6 +14,5 @@ public class App {
         }
         if (db != null) System.out.println("Database Connected.");
 
-
     }
 }
