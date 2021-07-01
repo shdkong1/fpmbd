@@ -1,3 +1,19 @@
+--Membatalkan Pembelian Barang Habis
+CREATE OR REPLACE FUNCTION out_of_stock_check() RETURNS TRIGGER
+AS
+    $BODY$
+    begin
+        if ((SELECT units_in_stock FROM products p WHERE p.product_id = new.product_id) = 0) then
+            return null;
+        end if;
+        return new;
+    end;
+    $BODY$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER out_of_stock BEFORE INSERT ON order_details
+    FOR EACH ROW EXECUTE PROCEDURE out_of_stock_check();
+
 ----MENGUBAH TANGGAL ORDER SESUAI WAKTU SEKARANG
 CREATE OR REPLACE FUNCTION proses_ubah_tgl_booking() RETURNS TRIGGER AS $$
 BEGIN
