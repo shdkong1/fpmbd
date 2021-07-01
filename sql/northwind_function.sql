@@ -16,3 +16,13 @@ end;
 $$;
 
 select countOrder('1996-07-23','1996-10-09');
+
+CREATE OR REPLACE FUNCTION getPrice(integer) RETURNS real LANGUAGE plpgsql AS
+$BODY$
+declare
+    price integer;
+begin
+    SELECT unit_price INTO price FROM products WHERE product_id = $1;
+    RETURN price;
+end;
+$BODY$;
