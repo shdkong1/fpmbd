@@ -1,7 +1,7 @@
 -- tabel categories
 CREATE SEQUENCE categories_id_seq
 INCREMENT 1
-START 1
+START 1;
 
 SELECT setval('categories_id_seq', (SELECT MAX(category_id) FROM categories));
 
@@ -12,7 +12,7 @@ SELECT * FROM categories;
 -- tabel employees
 CREATE SEQUENCE employees_id_seq
 INCREMENT 1
-START 1
+START 1;
 
 SELECT setval('employees_id_seq', (SELECT MAX(employee_id) FROM employees));
 
@@ -23,7 +23,7 @@ SELECT * FROM employees;
 -- tabel suppliers
 CREATE SEQUENCE suppliers_id_seq
 INCREMENT 1
-START 1
+START 1;
 
 SELECT setval('suppliers_id_seq', (SELECT MAX(supplier_id) FROM suppliers));
 
@@ -34,7 +34,7 @@ SELECT * FROM suppliers;
 --tabel products
 CREATE SEQUENCE products_id_seq
 INCREMENT 1
-START 1
+START 1;
 
 SELECT setval('products_id_seq', (SELECT MAX(product_id) FROM products));
 
@@ -45,7 +45,7 @@ SELECT * FROM products;
 --tabel shippers
 CREATE SEQUENCE shippers_id_seq
 INCREMENT 1
-START 1
+START 1;
 
 SELECT setval('shippers_id_seq', (SELECT MAX(shipper_id) FROM shippers));
 
