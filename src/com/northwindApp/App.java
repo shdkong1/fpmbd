@@ -1,5 +1,8 @@
 package com.northwindApp;
 
+import com.sun.tools.javac.Main;
+
+import java.awt.*;
 import java.sql.*;
 
 public class App {
@@ -12,7 +15,16 @@ public class App {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (db != null) System.out.println("Database Connected.");
+        if (db != null) {
+            System.out.println("Database connection success");
+            System.out.println("Starting application");
+            EventQueue.invokeLater(() -> {
+                MainWindow ui = new MainWindow();
+                ui.setVisible(true);
+            });
+        } else {
+            System.out.println("Database connection failed");
+        }
 
     }
 }
