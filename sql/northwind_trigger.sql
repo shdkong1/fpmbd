@@ -28,8 +28,8 @@ FOR EACH ROW
 EXECUTE PROCEDURE proses_ubah_tgl_booking();
 
 INSERT INTO orders VALUES (11078, 'RATTC', 1, null, '1998-06-03', NULL, 2, 8.52999973, 'Rattlesnake Canyon Grocery', '2817 Milton Dr.', 'Albuquerque', 'NM', '87110', 'USA');
-DROP TRIGGER ubah_tgl_booking ON orders
-DROP FUNCTION proses_ubah_tgl_booking
+DROP TRIGGER ubah_tgl_booking ON orders;
+DROP FUNCTION proses_ubah_tgl_booking;
 
 --Mengubah input lowercase menjadi uppercase
 CREATE OR REPLACE FUNCTION uppercase() RETURNS TRIGGER AS $$
@@ -44,8 +44,8 @@ FOR EACH ROW
 EXECUTE PROCEDURE uppercase();
 
 INSERT INTO customers VALUES ('arsad', 'Arsyad', 'Ardiansyah', 'Owner', 'ul. Filtrowa 68', 'Warszawa', NULL, '01-012', 'Poland', '(26) 642-7012', '(26) 642-7012');
-DROP TRIGGER check_uppercase ON customers
-DROP FUNCTION uppercase 
+DROP TRIGGER check_uppercase ON customers;
+DROP FUNCTION uppercase;
 
 --Menambah diskon setiap pembelian lebih dari 50
 CREATE OR REPLACE FUNCTION discount() RETURNS TRIGGER AS $$
