@@ -31,27 +31,11 @@ INSERT INTO orders VALUES (11078, 'RATTC', 1, null, '1998-06-03', NULL, 2, 8.529
 DROP TRIGGER ubah_tgl_booking ON orders;
 DROP FUNCTION proses_ubah_tgl_booking;
 
---Mengubah input lowercase menjadi uppercase
-CREATE OR REPLACE FUNCTION uppercase() RETURNS TRIGGER AS $$
-BEGIN
-NEW.customer_id := UPPER(NEW.customer_id);
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE TRIGGER check_uppercase
-BEFORE INSERT OR UPDATE ON customers
-FOR EACH ROW
-EXECUTE PROCEDURE uppercase();
-
-INSERT INTO customers VALUES ('arsad', 'Arsyad', 'Ardiansyah', 'Owner', 'ul. Filtrowa 68', 'Warszawa', NULL, '01-012', 'Poland', '(26) 642-7012', '(26) 642-7012');
-DROP TRIGGER check_uppercase ON customers;
-DROP FUNCTION uppercase;
-
---Menambah diskon setiap pembelian lebih dari 50
+--Menambah diskon 5% setiap pembelian lebih dari 50
 CREATE OR REPLACE FUNCTION discount() RETURNS TRIGGER AS $$
 BEGIN
-IF (NEW.quantity > 50) THEN
-	NEW.discount := OLD.discount + 0.5;
+IF (NEW.quantity >= 50) THEN
+	NEW.discount := OLD.discount + 0.05;
 END IF;
 RETURN NEW;
 END;
@@ -86,7 +70,7 @@ INSERT INTO order_details VALUES (11078, 7, 30, 5, 0);
 DROP TRIGGER update_stok ON order_details;
 DROP FUNCTION stok;
 
---Throw Exception saat banyak barang lebih dari stok
+--Throw Exception saat banyak barang yang dibeli lebih dari stok
 CREATE OR REPLACE FUNCTION less_stok() RETURNS TRIGGER AS $$
 DECLARE
 	is_zero boolean;
