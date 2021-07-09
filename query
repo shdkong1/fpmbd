@@ -1,0 +1,18 @@
+--Menghitung banyak order berdasarkan nama kategori
+select category_name ,count(orders.order_id) as jumlah_category from orders 
+join order_details od on (orders.order_id = od.order_id) 
+join products on (od.product_id=products.product_id) 
+join categories on (products.category_id=categories.category_id)
+group by category_name
+
+--melihat stok produk yang diatas 100 beserta company suplliernya
+select product_name, units_in_stock, company_name from products p 
+join suppliers s on (s.supplier_id= p.supplier_id) where (units_in_stock>100)
+order by units_in_stock desc
+
+--melihat nama product yang tidak memeliki discount pada order
+select p.product_name,od.unit_price,od.discount from order_details od, products p 
+where(p.product_id=od.product_id)
+except
+select  p.product_name,od.unit_price,od.discount  from order_details od,products p
+where(p.product_id=od.product_id) and (discount!=0)
