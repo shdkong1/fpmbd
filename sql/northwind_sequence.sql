@@ -53,4 +53,10 @@ INSERT INTO shippers VALUES (nextval('shippers_id_seq'), 'Uship');
 
 SELECT * FROM shippers;
 
---tabel lain tinggal copas aja
+--tabel orders
+CREATE SEQUENCE orders_id_seq INCREMENT 1 START 1;
+SELECT setval('orders_id_seq', (SELECT max(order_id) FROM orders));
+
+--tabel region
+CREATE SEQUENCE region_id_seq INCREMENT 1 START 1;
+SELECT setval('region_id_seq', (SELECT  max(region_id) FROM region));
