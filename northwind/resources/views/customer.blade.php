@@ -1,4 +1,4 @@
-@section('title','Region')
+@section('title','Customer')
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -92,7 +92,7 @@
         <div class="row">
           <div class="col-lg-12">
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-dashboard"></i> Region</li>
+              <li class="active"><i class="fa fa-dashboard"></i> Customer</li>
             </ol>
           </div>
         </div><!-- /.row -->
@@ -100,18 +100,36 @@
                 <table class="table table-bordered table-hover table-striped tablesorter">
                     <thead>
                         <tr>
-                            <th>ID Region<i class="fa fa-sort"></i></th>
-                            <th>Region Description <i class="fa fa-sort"></i></th>
+                            <th>ID Customer<i class="fa fa-sort"></i></th>
+                            <th>Company Name <i class="fa fa-sort"></i></th>
+                            <th>Contact Name<i class="fa fa-sort"></i></th>
+                            <th>Contact Title<i class="fa fa-sort"></i></th>
+                            <th>Address<i class="fa fa-sort"></i></th>
+                            <th>City<i class="fa fa-sort"></i></th>
+                            <th>Region<i class="fa fa-sort"></i></th>
+                            <th>Postal Code<i class="fa fa-sort"></i></th>
+                            <th>Country<i class="fa fa-sort"></i></th>
+                            <th>Phone<i class="fa fa-sort"></i></th>
+                            <th>Fax<i class="fa fa-sort"></i></th>
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($region as $dataregion)
+                    @foreach($customers as $datacustomer)
                         <tr>
-                            <td><?= $dataregion->region_id ?></td>
-                            <td><?= $dataregion->region_description ?></td>
+                            <td><?= $datacustomer->customer_id ?></td>
+                            <td><?= $datacustomer->company_name ?></td>
+                            <td><?= $datacustomer->contact_name ?></td>
+                            <td><?= $datacustomer->contact_title ?></td>
+                            <td><?= $datacustomer->address ?></td>
+                            <td><?= $datacustomer->city ?></td>
+                            <td><?= $datacustomer->region ?></td>
+                            <td><?= $datacustomer->postal_code ?></td>
+                            <td><?= $datacustomer->country ?></td>
+                            <td><?= $datacustomer->phone ?></td>
+                            <td><?= $datacustomer->fax ?></td>
                             <td class="text-center">
-                                <a href="{{ route('edit', $dataregion->region_id ) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ route('edit', $datacustomer->customer_id ) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i></a></td>
                             <td class="text-center">
                                 <a class="btn btn-danger btn-sm">
@@ -121,7 +139,7 @@
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambahBarang"><i class="fas fa-plus fa-sm"></i> Add New Region</button>
+            <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambahBarang"><i class="fas fa-plus fa-sm"></i> Add New Shipper</button>
       </div><!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
 
@@ -130,21 +148,57 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="tambahBarangLabel">New Region</h5>
+        <h5 class="modal-title" id="tambahBarangLabel">New Customer</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="{{ route('region/add_region') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('customer/add_customer') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="regionid">Region ID</label>
-                    <input type="text" name="regionid" class="form-control" required>
+                    <label for="customerid">ID Customer</label>
+                    <input type="text" name="customerid" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="regiondescription">Region Description</label>
-                    <input type="text" name="regiondescription" class="form-control" required>
+                    <label for="companyname">Company Name</label>
+                    <input type="text" name="companyname" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactname">Contact Name</label>
+                    <input type="text" name="contactname" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="contacttitle">Contact Title</label>
+                    <input type="text" name="contacttitle" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" name="city" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="region">Region</label>
+                    <input type="text" name="region" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="postalcode">Postal Code</label>
+                    <input type="text" name="postalcode" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" name="country" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" name="phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="fax">Fax</label>
+                    <input type="text" name="fax" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">

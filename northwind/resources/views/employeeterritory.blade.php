@@ -1,4 +1,4 @@
-@section('title','Region')
+@section('title','Employee Territories')
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -92,7 +92,7 @@
         <div class="row">
           <div class="col-lg-12">
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-dashboard"></i> Region</li>
+              <li class="active"><i class="fa fa-dashboard"></i> Employee Territories</li>
             </ol>
           </div>
         </div><!-- /.row -->
@@ -100,18 +100,18 @@
                 <table class="table table-bordered table-hover table-striped tablesorter">
                     <thead>
                         <tr>
-                            <th>ID Region<i class="fa fa-sort"></i></th>
-                            <th>Region Description <i class="fa fa-sort"></i></th>
+                            <th>ID Employee<i class="fa fa-sort"></i></th>
+                            <th>ID Territory <i class="fa fa-sort"></i></th>
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($region as $dataregion)
+                    @foreach($employee_territories as $dataemployeeterritory)
                         <tr>
-                            <td><?= $dataregion->region_id ?></td>
-                            <td><?= $dataregion->region_description ?></td>
+                            <td><?= $dataemployeeterritory->employee_id ?></td>
+                            <td><?= $dataemployeeterritory->territory_id ?></td>
                             <td class="text-center">
-                                <a href="{{ route('edit', $dataregion->region_id ) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ route('edit', $dataemployeeterritory->employee_id ) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i></a></td>
                             <td class="text-center">
                                 <a class="btn btn-danger btn-sm">
@@ -121,7 +121,7 @@
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambahBarang"><i class="fas fa-plus fa-sm"></i> Add New Region</button>
+            <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambahBarang"><i class="fas fa-plus fa-sm"></i> Add New Shipper</button>
       </div><!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
 
@@ -130,21 +130,21 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="tambahBarangLabel">New Region</h5>
+        <h5 class="modal-title" id="tambahBarangLabel">New Employee Territory</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="{{ route('region/add_region') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('employeeterritory/add_employeeterritory') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="regionid">Region ID</label>
-                    <input type="text" name="regionid" class="form-control" required>
+                    <label for="employeeid">ID Employee</label>
+                    <input type="text" name="employeeid" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="regiondescription">Region Description</label>
-                    <input type="text" name="regiondescription" class="form-control" required>
+                    <label for="territoryid">ID Territory</label>
+                    <input type="text" name="territoryid" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">
