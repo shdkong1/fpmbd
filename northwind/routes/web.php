@@ -17,10 +17,15 @@ Route::get('/', function (){
     return view('dashboard');
 });
 
-Route::get('shipper', 'App\Http\Controllers\ShipperController@index')->name('index');
+Route::get('home', function (){
+    return view('dashboard');
+})->name('home');
+
+Route::get('shipper', 'App\Http\Controllers\ShipperController@index')->name('indexshipper');
 Route::post('shipper/add_shipper', 'App\Http\Controllers\ShipperController@add_shipper')->name('shipper/add_shipper');
-Route::get('shipper/edit_shipper/{id}', 'App\Http\Controllers\ShipperController@edit')->name('edit');
-Route::put('update', 'App\Http\Controllers\ShipperController@update')->name('update');
+Route::get('shipper/edit_shipper/{id}', 'App\Http\Controllers\ShipperController@edit')->name('editshipper');
+Route::put('/{id}', 'App\Http\Controllers\ShipperController@update')->name('updateshipper');
+Route::delete('deleted', 'App\Http\Controllers\ShipperController@delete')->name('deleteshipper');
 
 Route::get('region', 'App\Http\Controllers\RegionController@index')->name('index');
 Route::post('region/add_region', 'App\Http\Controllers\RegionController@add_region')->name('region/add_region');

@@ -21,16 +21,29 @@ class ShipperController extends Controller
         return redirect()->back();
     }
 
-    public function edit($shipper_id){
-        $shippers = shipper::find($shipper_id);
+    public function edit($id){
+        $shippers = shipper::findOrFail($id);
         return view('edit_shipper', compact('shippers'));
     }
 
-    //public function update(Request $request){
-      //  shipper::where('shipper_id', $request->id)->update([
-        //    'company_name' => $request->companyname,
-          //  'phone' => $request->phonenumber
-       // ]);
-        //return redirect()->route('index');
-    //}
+    public function update(Request $request, $id){
+        //shipper::findOrFail($id);
+        
+        shipper::where('shipper_id', $request->id)->insert([
+                'company_name' => $request->company_name,
+                'phone' => $request->phone
+            ]);
+            return redirect()->route('indexshipper');
+    }
+
+    public function delete($id)
+    {
+        $shippers = Product::findOrFail($id);
+
+        if ($shippers->delete()) {
+            return redirect(route('indexshipper'));
+        }
+
+        return redirect(route('indexshipper'));
+    }
 }

@@ -37,7 +37,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active"><a href="{{ url('shipper') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li class="dropdown">
               <a href="charts.html" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Products <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -97,9 +97,9 @@
           </div>
         </div><!-- /.row -->
         <div class="container-fluid">
-            <h3><i class="fas fa-edit"></i>EDIT SHIPPER</h3>
+            <h3><i ></i>EDIT SHIPPER</h3>
 
-                <form method="post" action="{{ route('update') }}">
+                <form action="{{ route('updateshipper', ['id' => $shippers->shipper_id]) }}" method="post" >
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="id" class="form-control" value="{{ $shippers->shipper_id }}">

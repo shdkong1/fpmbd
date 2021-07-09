@@ -37,7 +37,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active"><a href="{{ url('home') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li class="dropdown">
               <a href="charts.html" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Products <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -113,11 +113,11 @@
                             <td><?= $datashipper->company_name ?></td>
                             <td><?= $datashipper->phone ?></td>
                             <td class="text-center">
-                                <a href="{{ route('edit', $datashipper->shipper_id ) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ route('editshipper', $datashipper->shipper_id ) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i></a></td>
                             <td class="text-center">
-                                <a class="btn btn-danger btn-sm">
-                                    <i class="fa fa-trash"></i></a></td>
+                                <a  class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
+                                    <i class="fa fa-delete"></i></a></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -126,6 +126,30 @@
             <button class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#tambahBarang"><i class="fas fa-plus fa-sm"></i> Add New Shipper</button>
       </div><!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Are You Sure?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <form
+              action="{{ route('deleteshipper') }}"
+              method="POST">
+                @csrf
+              @method('DELETE')
+              <button type="submit" class=" btn btn-danger">Delete</button>
+                </form>
+            </div>
+          </div>
+        </div>
+  </div>
 
     <!-- Modal -->
 <div class="modal fade" id="tambahBarang" tabindex="-1" aria-labelledby="tambahBarangLabel" aria-hidden="true">
