@@ -82,7 +82,7 @@ Route::post('customerdemographic/add_customerdemographic', 'App\Http\Controllers
 Route::get('customerdemographic/edit_customerdemographic/{id}', 'App\Http\Controllers\CustomerdemographicController@edit')->name('edit');
 Route::put('update', 'App\Http\Controllers\CustomerdemographicController@update')->name('update');
 
-Route::get('usstate', 'App\Http\Controllers\UsstatesController@index')->name('index');
-Route::post('usstate/add_usstate', 'App\Http\Controllers\UsstatesController@add_product')->name('usstate/add_usstate');
-Route::get('usstate/edit_usstate/{id}', 'App\Http\Controllers\UsstatesController@edit')->name('edit');
-Route::put('update', 'App\Http\Controllers\UsstatesController@update')->name('update');
+Route::get('usstate', 'App\Http\Controllers\UsstateController@index')->name('index');
+Route::post('usstate/add_usstate', 'App\Http\Controllers\UsstateController@add_product')->name('usstate/add_usstate');
+Route::get('usstate/edit_usstate/{id}', 'App\Http\Controllers\UsstateController@edit')->name('edit');
+Route::put('update', 'App\Http\Controllers\UsstateController@update')->name('update');

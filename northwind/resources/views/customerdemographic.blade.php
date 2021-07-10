@@ -139,8 +139,8 @@
             @csrf
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="customerid">ID Customer</label>
-                    <input type="text" name="customerid" class="form-control" required>
+                    <label for="customertypeid">ID Customer</label>
+                    <input type="text" name="customertypeid" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="customerdesc">Customer Description</label>
