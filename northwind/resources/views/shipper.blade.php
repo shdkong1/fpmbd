@@ -37,42 +37,42 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="{{ url('home') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li class="dropdown">
               <a href="charts.html" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Products <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Suppliers</a></li>
-                <li><a href="#">Category</a></li>
+                <li><a href="{{ url('product') }}">Products</a></li>
+                <li><a href="{{ url('supplier') }}">Suppliers</a></li>
+                <li><a href="{{ url('category') }}">Category</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="tables.html" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-table"></i> Employees <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Employees</a></li>
-                <li><a href="#">Territories</a></li>
-                <li><a href="#">Region</a></li>
+                <li><a href="{{ url('employee') }}">Employees</a></li>
+                <li><a href="{{ url('territory') }}">Territories</a></li>
+                <li><a href="{{ url('region') }}">Region</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="forms.html" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> Customers <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Customers</a></li>
-                <li><a href="#">Customer Demographics</a></li>
+                <li><a href="{{ url('customer') }}">Customers</a></li>
+                <li><a href="{{ url('customerdemographic') }}">Customer Demographics</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="typography.html" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-font"></i> Shippers <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Shippers</a></li>
-                <li><a href="#">States</a></li>
+                <li><a href="{{ url('shipper') }}">Shippers</a></li>
+                <li><a href="{{ url('usstate') }}">States</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="bootstrap-elements.html" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-desktop"></i> Orders <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Order Details</a></li>
+                <li><a href="{{ url('order') }}">Orders</a></li>
+                <li><a href="{{ url('orderdetail') }}">Order Details</a></li>
               </ul>
             </li>
           </ul>
